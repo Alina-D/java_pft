@@ -21,3 +21,9 @@ build/
 \.idea/workspace\.xml
 
 \.idea/misc\.xml
+
+\.idea/uiDesigner\.xml
+
+sandbox/gradle/wrapper/gradle-wrapper\.properties
+
+sandbox/gradle/wrapper/
