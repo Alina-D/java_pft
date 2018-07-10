@@ -5,7 +5,6 @@ public class Point {
   public double a;
   public double b;
 
-
   public Point(double a, double b) {
     this.a = a;
     this.b = b;
@@ -16,7 +15,7 @@ public class Point {
   }
 
   public double distancePoints () {
-    return  Math.sqrt((this.a + this.b));
+    return  Math.sqrt(this.a + this.b);
   }
 
 }
