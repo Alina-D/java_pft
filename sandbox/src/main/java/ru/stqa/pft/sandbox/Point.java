@@ -10,12 +10,13 @@ public class Point {
     this.b = b;
   }
 
-  public double distanceCoordinate () {
-    return  Math.pow((this.b - this.a),2);
+  public double distance (double a, double b) {
+    double da = Math.pow(this.a - a, 2);
+    double db = Math.pow(this.b - b, 2);
+    return Math.round(Math.sqrt(da + db) * 100.0)/100.0;
   }
 
-  public double distancePoints () {
-    return  Math.sqrt(this.a + this.b);
+  public double distance(Point p) {
+    return distance(p.a, p.b);
   }
-
 }
