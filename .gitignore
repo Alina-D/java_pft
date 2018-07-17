@@ -27,3 +27,7 @@ build/
 sandbox/gradle/wrapper/gradle-wrapper\.properties
 
 sandbox/gradle/wrapper/
+
+addressbook-web-tests/\.idea/workspace\.xml
+
+addressbook-web-tests/\.idea/
