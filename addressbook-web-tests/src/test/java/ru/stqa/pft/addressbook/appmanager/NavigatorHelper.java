@@ -16,4 +16,8 @@ public class NavigatorHelper extends HelperBase{
   public void goToContactPage() {
       click(By.linkText("add new"));
   }
+
+  public void goToHomePage() {
+    click(By.linkText("home"));
+  }
 }
