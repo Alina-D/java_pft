@@ -11,7 +11,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void returnToContactPage() {
-      click(By.linkText("home page"));
+    click(By.linkText("home page"));
   }
 
   public void submitToContactPage() {
@@ -34,4 +34,15 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteSelectedContact() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+  }
+
+  public void closeWindowDeletion() {
+    wd.switchTo().alert().accept();
+  }
 }
