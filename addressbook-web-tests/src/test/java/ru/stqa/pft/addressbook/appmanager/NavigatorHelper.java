@@ -20,7 +20,13 @@ public class NavigatorHelper extends HelperBase{
   }
 
   public void goToContactPage() {
+    if(isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
+            && isElementPresent(By.xpath("//input[@value='Enter']"))) {
+      return;
+    } else {
       click(By.linkText("add new"));
+    }
   }
 
   public void goToHomePage() {
