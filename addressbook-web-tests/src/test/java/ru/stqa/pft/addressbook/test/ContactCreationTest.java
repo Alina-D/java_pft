@@ -7,12 +7,12 @@ public class ContactCreationTest extends TestBase {
 
   @Test
   public void testContactCreation() {
-
     app.getNavigatorHelper().goToContactPage();
-
+    int before = app.getContactHelper().getContactCount();
     app.getContactHelper().createContact(new ContactData(
             "firstname1", "lastname1", "address1", "phone1",
             "email1", "name1"), true);
+    int after = app.getContactHelper().getContactCount();
   }
 
 }
