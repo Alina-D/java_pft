@@ -17,7 +17,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void submitToContactPage() {
-    click(By.xpath("//div[@id='content']/form/input[21]"));
+    click(By.name("submit"));
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
@@ -35,11 +35,11 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initContactModification() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    click(By.xpath(".//img[@title=\"Edit\"]"));
   }
 
   public void submitToContactModification() {
-    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+    click(By.name("update"));
   }
 
   public void selectContact(int index) {
@@ -47,7 +47,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void deleteSelectedContact() {
-    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    click(By.xpath("//input[@value=\"Delete\"]"));
   }
 
   public void closeWindowDeletion() {
