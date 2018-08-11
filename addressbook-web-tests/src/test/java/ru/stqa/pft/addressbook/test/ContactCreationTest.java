@@ -10,8 +10,8 @@ public class ContactCreationTest extends TestBase {
 
   @Test
   public void testContactCreation() {
-    app.getNavigatorHelper().goToContactPage();
     List<ContactData> before = app.getContactHelper().getContactList();
+    app.getNavigatorHelper().goToContactPage();
     app.getContactHelper().createContact(new ContactData(
             "firstname1", "lastname1", "address1", "phone1",
             "email1", "name1"), true);
