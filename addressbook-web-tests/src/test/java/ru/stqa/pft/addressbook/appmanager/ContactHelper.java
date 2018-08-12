@@ -77,16 +77,16 @@ public class ContactHelper extends HelperBase {
     List<WebElement> rows = wd.findElements(By.name("entry"));
     for (WebElement row : rows) {
       List<WebElement> sells = row.findElements(By.tagName("td")) ;
-      String firstname = sells.get(0).getText();
+      String firstname = sells.get(2).getText();
       String lastname = sells.get(1).getText();
-      String address = sells.get(2).getText();
-      String phone = sells.get(3).getText();
+      String address = sells.get(3).getText();
+      String phone = sells.get(5).getText();
       String email = sells.get(4).getText();
-      String group = sells.get(5).getText();
-      String id = row.findElement(By.tagName("input")).getAttribute("value");
-      ContactData contact = new ContactData(id, firstname, lastname, address, phone, email, group);
+
+      int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
+      ContactData contact = new ContactData(id, firstname, lastname, address, phone, email, null);
       contacts.add(contact);
-  }
+    }
     return contacts;
   }
 }
