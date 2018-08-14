@@ -1,17 +1,17 @@
 package ru.stqa.pft.addressbook.test;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTest extends TestBase {
 
-  @Test
-  public void testContactModification() {
+  @BeforeMethod
+  public void ensurePreconditions() {
     app.getNavigatorHelper().goToHomePage();
     if (!app.getContactHelper().idThereAContact()) {
       app.getNavigatorHelper().goToContactPage();
@@ -19,11 +19,15 @@ public class ContactModificationTest extends TestBase {
               "firstname1", "lastname1", "address1", "phone1",
               "email1", "name1"), true);
     }
+  }
+
+  @Test
+  public void testContactModification() {
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().initContactModification(before.size() - 1);
     ContactData contact = new ContactData(before.get(before.size() - 1).getId(),
             "firstname1", "lastname1", "address1", "phone1",
             "email1", null);
+    app.getContactHelper().initContactModification(before.size() - 1);
     app.getContactHelper().fillContactForm(contact, false);
     app.getContactHelper().submitToContactModification();
     app.getContactHelper().returnToContactPage();
