@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import javax.xml.ws.WebEndpoint;
 import java.util.ArrayList;
 import java.util.List;
 
