@@ -12,9 +12,9 @@ public class ContactCreationTest extends TestBase {
   @Test
   public void testContactCreation() {
     List<ContactData> before = app.contact().list();
-    ContactData contact = new ContactData(
-            "firstname1", "lastname1", "address1", "phone1",
-            "email1", "name1");
+    ContactData contact = new ContactData()
+            .setFirstName("firstname1").setLastName("lastname1").setAddress("address1").setPhone("phone1")
+            .setEmail("email1").setGroup("name1");
     app.goTo().contactPage();
     app.contact().create(contact, true);
     List<ContactData> after = app.contact().list();
