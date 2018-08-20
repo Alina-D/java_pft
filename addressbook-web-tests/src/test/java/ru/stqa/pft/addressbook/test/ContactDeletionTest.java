@@ -27,7 +27,7 @@ public class ContactDeletionTest extends TestBase {
     app.contact().delete(index);
     app.goTo().homePage();
     List<ContactData> after = app.contact().list();
-    Assert.assertEquals(after.size(), index);
+    Assert.assertEquals(after.size(), before.size() - 1);
 
     before.remove(index);
     Assert.assertEquals(before, after);
