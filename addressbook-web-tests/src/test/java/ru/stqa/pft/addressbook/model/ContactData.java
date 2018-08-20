@@ -44,32 +44,32 @@ public class ContactData {
     return this;
   }
 
-  public ContactData setFirstName(String firstname) {
+  public ContactData withFirstName(String firstname) {
     this.firstname = firstname;
     return this;
   }
 
-  public ContactData setLastName(String lastname) {
+  public ContactData withLastName(String lastname) {
     this.lastname = lastname;
     return this;
   }
 
-  public ContactData setAddress(String address) {
+  public ContactData withAddress(String address) {
     this.address = address;
     return this;
   }
 
-  public ContactData setPhone(String phone) {
+  public ContactData withPhone(String phone) {
     this.phone = phone;
     return this;
   }
 
-  public ContactData setEmail(String email) {
+  public ContactData withEmail(String email) {
     this.email = email;
     return this;
   }
 
-  public ContactData setGroup(String group) {
+  public ContactData withGroup(String group) {
     this.group = group;
     return this;
   }
