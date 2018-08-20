@@ -12,10 +12,10 @@ public class ContactModificationTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.getNavigatorHelper().goToHomePage();
-    if (!app.getContactHelper().idThereAContact()) {
-      app.getNavigatorHelper().goToContactPage();
-      app.getContactHelper().createContact(new ContactData(
+    app.goTo().homePage();
+    if (app.contact().list().size() == 0) {
+      app.goTo().contactPage();
+      app.contact().create(new ContactData(
               "firstname1", "lastname1", "address1", "phone1",
               "email1", "name1"), true);
     }
@@ -23,15 +23,16 @@ public class ContactModificationTest extends TestBase {
 
   @Test
   public void testContactModification() {
-    List<ContactData> before = app.getContactHelper().getContactList();
-    ContactData contact = new ContactData(before.get(before.size() - 1).getId(),
+    List<ContactData> before = app.contact().list();
+    int index = before.size() - 1;
+    ContactData contact = new ContactData(before.get(index).getId(),
             "firstname1", "lastname1", "address1", "phone1",
             "email1", null);
-    app.getContactHelper().modifyContact(before, contact);
-    List<ContactData> after = app.getContactHelper().getContactList();
+    app.contact().modify(index, contact);
+    List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size());
 
-    before.remove(before.size() - 1);
+    before.remove(index);
     before.add(contact);
     Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
     before.sort(byId);

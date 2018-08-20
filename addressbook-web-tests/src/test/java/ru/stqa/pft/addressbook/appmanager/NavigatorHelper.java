@@ -9,7 +9,7 @@ public class NavigatorHelper extends HelperBase{
     super(wd);
   }
 
-  public void goToGroupPage() {
+  public void groupPage() {
     if(isElementPresent(By.tagName("h1"))
             && wd.findElement(By.tagName("h1")).getText().equals("Group")
             && isElementPresent(By.name("new"))) {
@@ -19,7 +19,7 @@ public class NavigatorHelper extends HelperBase{
     }
   }
 
-  public void goToContactPage() {
+  public void contactPage() {
     if(isElementPresent(By.tagName("h1"))
             && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
             && isElementPresent(By.xpath("//input[@value='Enter']"))) {
@@ -29,7 +29,7 @@ public class NavigatorHelper extends HelperBase{
     }
   }
 
-  public void goToHomePage() {
+  public void homePage() {
     if(! isElementPresent(By.id("maintable"))) {
       click(By.linkText("home"));
     }
