@@ -4,9 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.List;
 import java.util.Set;
 
 public class ContactDeletionTest extends TestBase {
@@ -14,7 +12,7 @@ public class ContactDeletionTest extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().homePage();
-    if (app.contact().list().size() == 0) {
+    if (app.contact().all().size() == 0) {
       app.goTo().contactPage();
       app.contact().create(new ContactData()
               .withFirstName("firstname1").withLastName("lastname1").withAddress("address1").withPhone("phone1")
