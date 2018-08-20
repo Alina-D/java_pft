@@ -8,7 +8,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -97,7 +99,26 @@ public class ContactHelper extends HelperBase {
       String email = sells.get(4).getText();
 
       int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact = new ContactData().setId(id).withFirstName(firstname).withLastName(lastname)
+      ContactData contact = new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
+              .withAddress(address).withPhone(phone).withEmail(email);
+      contacts.add(contact);
+    }
+    return contacts;
+  }
+
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    for (WebElement row : rows) {
+      List<WebElement> sells = row.findElements(By.tagName("td")) ;
+      String firstname = sells.get(2).getText();
+      String lastname = sells.get(1).getText();
+      String address = sells.get(3).getText();
+      String phone = sells.get(5).getText();
+      String email = sells.get(4).getText();
+
+      int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
+      ContactData contact = new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
               .withAddress(address).withPhone(phone).withEmail(email);
       contacts.add(contact);
     }

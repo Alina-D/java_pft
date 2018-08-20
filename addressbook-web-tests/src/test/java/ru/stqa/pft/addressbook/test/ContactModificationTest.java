@@ -24,7 +24,7 @@ public class ContactModificationTest extends TestBase {
   public void testContactModification() {
     List<ContactData> before = app.contact().list();
     int index = before.size() - 1;
-    ContactData contact = new ContactData().setId(before.get(index).getId()).withFirstName("firstname1")
+    ContactData contact = new ContactData().withId(before.get(index).getId()).withFirstName("firstname1")
             .withLastName("lastname1").withAddress("address1").withPhone("phone1").withEmail("email1");
     app.contact().modify(index, contact);
     List<ContactData> after = app.contact().list();
