@@ -20,7 +20,7 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
-  public void submitToContactPage() {
+  public void submitContactCreation() {
     click(By.name("submit"));
   }
 
@@ -60,7 +60,8 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contact, boolean creation) {
     fillContactForm(contact, creation);
-    submitToContactPage();
+    submitContactCreation();
+    contactCashe = null;
     returnToContactPage();
   }
 
@@ -68,12 +69,14 @@ public class ContactHelper extends HelperBase {
     initContactModification(contact.getId());
     fillContactForm(contact, false);
     submitToContactModification();
+    contactCashe = null;
     returnToContactPage();
   }
 
   public void delete(ContactData contact) {
     selectContactById(contact.getId());
     deleteSelectedContact();
+    contactCashe = null;
     closeWindowDeletion();
   }
 
@@ -85,8 +88,13 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
+  private Contacts contactCashe = null;
+
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCashe != null) {
+      return new Contacts(contactCashe);
+    }
+    contactCashe = new Contacts();
     List<WebElement> rows = wd.findElements(By.name("entry"));
     for (WebElement row : rows) {
       List<WebElement> sells = row.findElements(By.tagName("td")) ;
@@ -99,8 +107,8 @@ public class ContactHelper extends HelperBase {
       int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
       ContactData contact = new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
               .withAddress(address).withPhone(phone).withEmail(email);
-      contacts.add(contact);
+      contactCashe.add(contact);
     }
-    return contacts;
+    return new Contacts(contactCashe);
   }
 }
