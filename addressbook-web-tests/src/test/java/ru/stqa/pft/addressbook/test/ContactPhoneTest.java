@@ -4,6 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class ContactPhoneTest extends TestBase {
 
   @BeforeMethod
@@ -23,6 +26,9 @@ public class ContactPhoneTest extends TestBase {
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFormEditForm = app.contact().intoFormEditForm(contact);
 
+    assertThat(contact.getHomePhone(), equalTo(contactInfoFormEditForm.getHomePhone()));
+    assertThat(contact.getMobilePhone(), equalTo(contactInfoFormEditForm.getMobilePhone()));
+    assertThat(contact.getWorkPhone(), equalTo(contactInfoFormEditForm.getWorkPhone()));
   }
 
 

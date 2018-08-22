@@ -102,15 +102,16 @@ public class ContactHelper extends HelperBase {
     List<WebElement> rows = wd.findElements(By.name("entry"));
     for (WebElement row : rows) {
       List<WebElement> sells = row.findElements(By.tagName("td")) ;
-      String firstname = sells.get(2).getText();
-      String lastname = sells.get(1).getText();
-      String address = sells.get(3).getText();
-      String phone = sells.get(5).getText();
-      String email = sells.get(4).getText();
-
       int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
+      String lastname = sells.get(1).getText();
+      String firstname = sells.get(2).getText();
+      String address = sells.get(3).getText();
+      String email = sells.get(4).getText();
+      String[] phones = sells.get(5).getText().split("\n");
+
       ContactData contact = new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
-              .withAddress(address).withEmail(email).withHomePhone("111").withMobilePhone("222").withWorkPhone("333");
+              .withAddress(address).withEmail(email).withHomePhone(phones[0]).withMobilePhone(phones[1])
+              .withWorkPhone(phones[2]);
       contactCashe.add(contact);
     }
     return new Contacts(contactCashe);
