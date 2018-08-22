@@ -107,11 +107,10 @@ public class ContactHelper extends HelperBase {
       String firstname = sells.get(2).getText();
       String address = sells.get(3).getText();
       String email = sells.get(4).getText();
-      String[] phones = sells.get(5).getText().split("\n");
+      String allPhones = sells.get(5).getText();
 
       ContactData contact = new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
-              .withAddress(address).withEmail(email).withHomePhone(phones[0]).withMobilePhone(phones[1])
-              .withWorkPhone(phones[2]);
+              .withAddress(address).withEmail(email).withAllPhones(allPhones);
       contactCashe.add(contact);
     }
     return new Contacts(contactCashe);
