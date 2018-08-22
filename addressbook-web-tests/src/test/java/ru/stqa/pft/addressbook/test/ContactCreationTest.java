@@ -13,8 +13,8 @@ public class ContactCreationTest extends TestBase {
   public void testContactCreation() {
     Contacts before = app.contact().all();
     ContactData contact = new ContactData()
-            .withFirstName("firstname1").withLastName("lastname1").withAddress("address1").withPhone("phone1")
-            .withEmail("email1").withGroup("name1");
+            .withFirstName("firstname1").withLastName("lastname1").withAddress("address1").withEmail("email1").
+                    withGroup("name1").withHomePhone("111").withMobilePhone("222").withWorkPhone("333");
     app.goTo().contactPage();
     app.contact().create(contact, true);
     Contacts after = app.contact().all();
@@ -28,8 +28,8 @@ public class ContactCreationTest extends TestBase {
   public void testBadContactCreation() {
     Contacts before = app.contact().all();
     ContactData contact = new ContactData()
-            .withFirstName("firstname1").withLastName("lastname1'").withAddress("address1").withPhone("phone1")
-            .withEmail("email1").withGroup("name1");
+            .withFirstName("firstname1").withLastName("lastname1'").withAddress("address1").withEmail("email1").
+                    withGroup("name1").withHomePhone("111").withMobilePhone("222").withWorkPhone("333");
     app.goTo().contactPage();
     app.contact().create(contact, true);
 
