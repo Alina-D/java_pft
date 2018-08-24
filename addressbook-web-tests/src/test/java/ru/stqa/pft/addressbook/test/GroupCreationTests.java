@@ -25,6 +25,7 @@ public class GroupCreationTests extends TestBase {
 
   @Test(dataProvider = "validGroups")
   public void testGroupCreation(GroupData group) {
+
       app.goTo().groupPage();
       Groups before = app.group().all();
       app.group().create(group);
