@@ -38,7 +38,6 @@ public class GroupCreationTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validGroupsFromJson() throws IOException {
-    List<Object[]> list = new ArrayList<Object[]>();
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
     String json = "";
     String line = reader.readLine();
@@ -51,7 +50,7 @@ public class GroupCreationTests extends TestBase {
     return groups.stream().map(g -> new Object [] {g}).collect(Collectors.toList()).iterator();
   }
 
-  @Test(dataProvider = "validGroupsFromJson")
+  @Test(dataProvider = "validGroupsFromXml")
   public void testGroupCreation(GroupData group) {
       app.goTo().groupPage();
       Groups before = app.group().all();
