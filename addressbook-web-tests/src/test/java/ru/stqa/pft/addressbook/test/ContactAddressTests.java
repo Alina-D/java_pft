@@ -7,7 +7,11 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactAddressTests extends TestBase{
+public class ContactAddressTests extends TestBase {
+
+  public static String cleaned(String address) {
+    return address.replaceAll("\\s", "");
+  }
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -22,16 +26,12 @@ public class ContactAddressTests extends TestBase{
   }
 
   @Test
-  public void testContactPhones(){
+  public void testContactPhones() {
     app.goTo().homePage();
     ContactData contact = app.contact().all().iterator().next();
     ContactData contactInfoFormEditForm = app.contact().intoFormEditForm(contact);
 
     assertThat(cleaned(contact.getAddress()), equalTo(cleaned(contactInfoFormEditForm.getAddress())));
-  }
-
-  public static String cleaned(String address){
-    return address.replaceAll("\\s", "");
   }
 
 }
