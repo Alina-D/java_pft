@@ -17,6 +17,7 @@ import java.util.List;
 
 public class ContactDataGenerator {
 
+  // -c 3 -f src/test/resources/contacts.json -d json
   @Parameter(names = "-c", description = "Contact count")
   public int count;
 
