@@ -82,6 +82,7 @@ public class ContactCreationTests extends TestBase {
 
     assertThat(app.contact().count(), equalTo(before.size()));
     assertThat(after, equalTo(before));
+    verifyContactListInUI();
   }
 
   @Test
@@ -91,5 +92,6 @@ public class ContactCreationTests extends TestBase {
     File photo = new File("src/test/resources/img.jpg");
     System.out.println(photo.getAbsolutePath());
     System.out.println(photo.exists());
+    verifyContactListInUI();
   }
 }
