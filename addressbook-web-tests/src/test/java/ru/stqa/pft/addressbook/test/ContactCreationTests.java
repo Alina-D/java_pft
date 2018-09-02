@@ -3,10 +3,13 @@ package ru.stqa.pft.addressbook.test;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,6 +24,14 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
+
+  @BeforeMethod
+  public void ensurePreconditions() {
+      if (app.db().groups().size() == 0) {
+        app.goTo().groupPage();
+        app.group().create(new GroupData().withName("name1").withHeader("header1").withFooter("footer1"));
+      }
+  }
 
   @DataProvider
   public Iterator<Object[]> validContactsFromXml() throws IOException {
@@ -58,9 +69,11 @@ public class ContactCreationTests extends TestBase {
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     Contacts before = app.db().contacts();
-    app.goTo().contactPage();
     File photo = new File("src/test/resources/img.jpg");
-    app.contact().create(contact.withPhoto(photo), true);
+    Groups groups = app.db().groups();
+    ContactData newContact = contact.withPhoto(photo).inGroup(groups.iterator().next());
+    app.goTo().contactPage();
+    app.contact().create(newContact,true);
     Contacts after = app.db().contacts();
 
     assertThat(after.size(), equalTo(before.size() + 1));
@@ -70,14 +83,15 @@ public class ContactCreationTests extends TestBase {
 
   @Test
   public void testBadContactCreation() {
+    Contacts before = app.db().contacts();
+    File photo = new File("src/test/resources/img.jpg");
+    Groups groups = app.db().groups();
     ContactData contact = new ContactData()
             .withFirstName("firstname1").withLastName("lastname1'").withAddress("address1").withEmail("email1")
-            .withEmail2("email2").withEmail3("email3").withGroup("name1").withHomePhone("111")
-            .withMobilePhone("222").withWorkPhone("333");
-    Contacts before = app.db().contacts();
+            .withEmail2("email2").withEmail3("email3").withHomePhone("111")
+            .withMobilePhone("222").withWorkPhone("333").withPhoto(photo).inGroup(groups.iterator().next());
     app.goTo().contactPage();
-    File photo = new File("src/test/resources/img.jpg");
-    app.contact().create(contact.withPhoto(photo), true);
+    app.contact().create(contact, true);
     Contacts after = app.db().contacts();
 
     assertThat(app.contact().count(), equalTo(before.size()));
