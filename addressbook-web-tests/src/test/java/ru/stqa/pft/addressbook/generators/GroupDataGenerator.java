@@ -17,7 +17,7 @@ import java.util.List;
 
 public class GroupDataGenerator {
 
-  // -c 3 -f src/test/resources/contacts.xml -d xml
+  // -c 3 -f src/test/resources/groups.xml -d xml
   @Parameter(names = "-c", description = "Group count")
   public int count;
 

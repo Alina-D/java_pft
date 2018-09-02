@@ -21,7 +21,7 @@ public class ContactPhoneTests extends TestBase {
       File photo = new File("src/test/resources/img.jpg");
       app.contact().create(new ContactData()
               .withFirstName("firstname1").withLastName("lastname1").withAddress("address1").withEmail("email1")
-              .withEmail2("email2").withEmail3("email3").withGroup("name1").withHomePhone("111")
+              .withEmail2("email2").withEmail3("email3").withHomePhone("111")
               .withMobilePhone("222").withWorkPhone("333").withPhoto(photo), true);
     }
   }
