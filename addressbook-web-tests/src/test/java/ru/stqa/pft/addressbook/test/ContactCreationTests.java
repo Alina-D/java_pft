@@ -55,13 +55,13 @@ public class ContactCreationTests extends TestBase {
     }
   }
 
-  @Test(dataProvider = "validContactsFromXml")
+  @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.goTo().contactPage();
     File photo = new File("src/test/resources/img.jpg");
     app.contact().create(contact.withPhoto(photo), true);
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
 
     assertThat(after.size(), equalTo(before.size() + 1));
     assertThat(after, equalTo(before.withAdded(
@@ -74,12 +74,13 @@ public class ContactCreationTests extends TestBase {
             .withFirstName("firstname1").withLastName("lastname1'").withAddress("address1").withEmail("email1")
             .withEmail2("email2").withEmail3("email3").withGroup("name1").withHomePhone("111")
             .withMobilePhone("222").withWorkPhone("333");
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.goTo().contactPage();
-    app.contact().create(contact, true);
+    File photo = new File("src/test/resources/img.jpg");
+    app.contact().create(contact.withPhoto(photo), true);
+    Contacts after = app.db().contacts();
 
     assertThat(app.contact().count(), equalTo(before.size()));
-    Contacts after = app.contact().all();
     assertThat(after, equalTo(before));
   }
 
