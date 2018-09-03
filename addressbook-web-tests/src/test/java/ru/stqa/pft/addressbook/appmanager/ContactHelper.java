@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.List;
 
@@ -49,6 +51,10 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 
+  private void returnToGroupPage(int id) {
+    wd.findElement(By.cssSelector(String.format("a[href='./?group=%s']", id))).click();
+  }
+
   public void submitToContactModification() {
     click(By.name("update"));
   }
@@ -85,6 +91,40 @@ public class ContactHelper extends HelperBase {
     deleteSelectedContact();
     contactCashe = null;
     closeWindowDeletion();
+  }
+
+  public void addContactToGroup(ContactData contact, GroupData group) {
+    selectContactById(contact.getId());
+    addContactToGroup(group);
+    clickAddGroup();
+    contactCashe = null;
+    returnToGroupPage(group.getId());
+  }
+
+  public void removeGroup(ContactData contact, GroupData groups) {
+    selectGroup(groups);
+    selectContactById(contact.getId());
+    removeGroupFromContact();
+    contactCashe = null;
+  }
+
+  private void removeGroupFromContact() {
+    click(By.name("remove"));
+  }
+
+  private void selectGroup(GroupData group) {
+    new Select(wd.findElement(By.name("group")))
+              .selectByVisibleText(group.getName());
+  }
+
+
+  private void addContactToGroup(GroupData group) {
+    new Select(wd.findElement(By.name("to_group")))
+            .selectByVisibleText(group.getName());
+  }
+
+  private void clickAddGroup() {
+    click(By.name("add"));
   }
 
   public boolean idThereAContact() {
