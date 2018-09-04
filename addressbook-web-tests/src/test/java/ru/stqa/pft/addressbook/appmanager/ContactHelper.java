@@ -106,17 +106,23 @@ public class ContactHelper extends HelperBase {
     selectContactById(contact.getId());
     removeGroupFromContact();
     contactCashe = null;
+    returnToGroupPage(groups.getId());
+    returnToAllGroupPage();
   }
 
   private void removeGroupFromContact() {
     click(By.name("remove"));
   }
 
+  private void returnToAllGroupPage() {
+    new Select(wd.findElement(By.name("group")))
+          .selectByVisibleText("[all]");
+  }
+
   private void selectGroup(GroupData group) {
     new Select(wd.findElement(By.name("group")))
               .selectByVisibleText(group.getName());
   }
-
 
   private void addContactToGroup(GroupData group) {
     new Select(wd.findElement(By.name("to_group")))

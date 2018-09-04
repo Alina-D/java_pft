@@ -9,6 +9,9 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class RemoveContactFromGroupTest extends TestBase{
 
   @BeforeMethod
@@ -32,26 +35,25 @@ public class RemoveContactFromGroupTest extends TestBase{
 
   @Test
   public void testAddContactToGroup() {
-    Contacts before = app.db().contacts();
-    ContactData contact = before.iterator().next();
-//    System.out.println("____contact______" + contact.getGroups().iterator().next().getName());
-    if (contact.getGroups().size() == 0) {
-      GroupData newGroup = new GroupData().withName("name1").withHeader("header1").withFooter("footer1");
-      app.goTo().groupPage();
-      app.group().create(newGroup);
-      app.goTo().homePage();
-      System.out.println("_______________- " + newGroup.getId() + newGroup.getName());
-      System.out.println("new " + newGroup);
-      app.contact().addContactToGroup(contact, newGroup);
-      GroupData group = contact.getGroups().iterator().next();
+    Contacts contacts = app.db().contacts();
+    ContactData contact = contacts.iterator().next();
+    int before = contact.getGroups().size();
+    System.out.println("before " + before);
+
+    if (before == 0) {
+      Groups groups = app.db().groups();
+      GroupData group = groups.iterator().next();
+      app.contact().addContactToGroup(contact, group);
+      before = contact.getGroups().size();
+
       app.contact().removeGroup(contact, group);
     } else {
       GroupData group = contact.getGroups().iterator().next();
-      System.out.println("old " + group);
-      // GroupData{id='166', name='name1'}
       app.contact().removeGroup(contact, group);
     }
+    int after = contact.getGroups().size();
+    System.out.println("after  " + after);
 
-//    assertThat());
+//    assertThat(after, equalTo(before));
   }
 }

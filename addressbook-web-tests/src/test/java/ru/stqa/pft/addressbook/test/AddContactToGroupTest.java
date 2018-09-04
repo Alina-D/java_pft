@@ -33,13 +33,18 @@ public class AddContactToGroupTest extends TestBase{
 
   @Test
   public void testAddContactToGroup() {
+    Contacts contacts = app.db().contacts();
+    ContactData contact = contacts.iterator().next();
     Groups groups = app.db().groups();
     GroupData group = groups.iterator().next();
-    Contacts before = app.db().contacts();
-    ContactData contact = before.iterator().next();
-    app.contact().addContactToGroup(contact, group);
-
-//    assertThat());
+    int before = contact.getGroups().size();
+    if(groups.size() == contact.getGroups().size()){
+      app.contact().removeGroup(contact, group);
+      app.contact().addContactToGroup(contact, group);
+    } else {
+      app.contact().addContactToGroup(contact, group);
+    }
+    int after = contact.getGroups().size();
+//        assertThat(after, equalTo(before));
   }
-
 }
