@@ -1,11 +1,13 @@
 package ru.stqa.pft.mantis.appmanager;
 
+import org.apache.http.protocol.HTTP;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.HttpSessionId;
 
 
 import java.io.File;
@@ -43,5 +45,13 @@ public class ApplicationManager {
 
   public void stop() {
     wd.quit();
+  }
+
+  public HttpSession newSession (){
+    return new HttpSession(this);
+  }
+
+  public String getProperty(String key) {
+    return properties.getProperty(key);
   }
 }
