@@ -33,3 +33,5 @@ addressbook-web-tests/\.idea/workspace\.xml
 addressbook-web-tests/\.idea/
 
 *.log
+
+mantis/\.idea/
