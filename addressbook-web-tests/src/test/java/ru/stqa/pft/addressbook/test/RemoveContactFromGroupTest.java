@@ -8,6 +8,9 @@ import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -40,10 +43,13 @@ public class RemoveContactFromGroupTest extends TestBase{
     Groups groups = app.db().groups();
     GroupData group = groups.iterator().next();
     int before = contact.getGroups().size();
+    app.goTo().homePage();
 
     if (before == 0) {
       app.contact().addContactToGroup(contact, group);
       before = app.db().contacts().iterator().next().getGroups().size();
+    } else {
+      group = contact.getGroups().iterator().next();
     }
 
     app.contact().removeGroup(contact, group);
