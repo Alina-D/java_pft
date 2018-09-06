@@ -1,6 +1,7 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.By;
+import ru.stqa.pft.mantis.model.UserData;
 
 public class PasswordCangeHelper extends HelperBase {
 
@@ -17,5 +18,13 @@ public class PasswordCangeHelper extends HelperBase {
     click(By.cssSelector("input[value='Login']"));
   }
 
+  public void openProfileUser(UserData user) {
+    click(By.linkText("Manage Users"));
+    click(By.linkText(user.getName()));
+  }
 
+  public void sendEmailWithRecoveryLink(UserData user) {
+    openProfileUser(user);
+    click(By.xpath("//input[@value=\"Reset Password\"]"));
+  }
 }

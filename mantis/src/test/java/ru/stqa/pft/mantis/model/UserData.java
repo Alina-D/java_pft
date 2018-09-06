@@ -12,8 +12,12 @@ public class UserData {
 
   @Id
   private int id;
+
   @Column(name = "username")
   private String name;
+
+  @Column(name = "email")
+  private String email;
 
   public int getId() {
     return id;
@@ -21,6 +25,10 @@ public class UserData {
 
   public String getName() {
     return name;
+  }
+
+  public String getEmail() {
+    return email;
   }
 
   public UserData withId(int id) {
@@ -33,11 +41,17 @@ public class UserData {
     return this;
   }
 
+  public UserData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "UserData{" +
             "id=" + id +
             ", name='" + name + '\'' +
+            ", email='" + email + '\'' +
             '}';
   }
 
@@ -47,11 +61,12 @@ public class UserData {
     if (o == null || getClass() != o.getClass()) return false;
     UserData userData = (UserData) o;
     return id == userData.id &&
-            Objects.equals(name, userData.name);
+            Objects.equals(name, userData.name) &&
+            Objects.equals(email, userData.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(id, name, email);
   }
 }
