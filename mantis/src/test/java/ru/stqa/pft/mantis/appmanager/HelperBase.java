@@ -25,14 +25,14 @@ public class HelperBase {
     click(locator);
     if (text != null) {
       String existingText = wd.findElement(locator).getAttribute("value");
-      if (! text.equals(existingText)) {
+      if (!text.equals(existingText)) {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
       }
     }
   }
 
-  protected void attach (By locator, File file) {
+  protected void attach(By locator, File file) {
     if (file != null) {
       wd.findElement(locator).sendKeys(file.getAbsolutePath());
     }
@@ -49,12 +49,11 @@ public class HelperBase {
   }
 
   protected boolean isElementPresent(By locator) {
-    try{
+    try {
       wd.findElement(locator);
       return true;
-    } catch (NoSuchElementException ex){
+    } catch (NoSuchElementException ex) {
       return false;
     }
-
   }
 }

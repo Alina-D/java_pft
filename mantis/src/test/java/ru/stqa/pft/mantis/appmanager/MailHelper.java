@@ -16,7 +16,7 @@ public class MailHelper {
   private ApplicationManager app;
   private final Wiser wiser;
 
-  public MailHelper(ApplicationManager app){
+  public MailHelper(ApplicationManager app) {
     this.app = app;
     wiser = new Wiser();
   }

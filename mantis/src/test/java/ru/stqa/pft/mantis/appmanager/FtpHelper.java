@@ -11,7 +11,6 @@ public class FtpHelper {
   private final ApplicationManager app;
   private FTPClient ftp;
 
-
   public FtpHelper(ApplicationManager app) {
     this.app = app;
     ftp = new FTPClient();

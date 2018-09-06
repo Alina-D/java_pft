@@ -1,14 +1,11 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.apache.http.protocol.HTTP;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
-import org.openqa.selenium.remote.HttpSessionId;
-
 
 import java.io.File;
 import java.io.FileReader;
@@ -46,7 +43,7 @@ public class ApplicationManager {
     }
   }
 
-  public HttpSession newSession (){
+  public HttpSession newSession() {
     return new HttpSession(this);
   }
 
@@ -55,13 +52,13 @@ public class ApplicationManager {
   }
 
   public RegistrationHelper registration() {
-    if (registrationHelper == null){
+    if (registrationHelper == null) {
       registrationHelper = new RegistrationHelper(this);
     }
     return registrationHelper;
   }
 
-  public FtpHelper ftp(){
+  public FtpHelper ftp() {
     if (ftp == null) {
       ftp = new FtpHelper(this);
     }
@@ -69,12 +66,12 @@ public class ApplicationManager {
   }
 
   public WebDriver getDriver() {
-    if(wd == null){
+    if (wd == null) {
       if (browser.equals(BrowserType.FIREFOX)) {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
       } else if (browser.equals(BrowserType.CHROME)) {
         wd = new ChromeDriver();
-      } else if (browser.equals(BrowserType.IE)){
+      } else if (browser.equals(BrowserType.IE)) {
         wd = new InternetExplorerDriver();
       }
       wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -87,22 +84,22 @@ public class ApplicationManager {
     return DbHelper;
   }
 
-  public MailHelper mail(){
+  public MailHelper mail() {
     if (mailHalper == null) {
       mailHalper = new MailHelper(this);
     }
     return mailHalper;
   }
 
-  public  JamesHelper james() {
+  public JamesHelper james() {
     if (jamesHelper == null) {
       jamesHelper = new JamesHelper(this);
     }
     return jamesHelper;
   }
 
-  public PasswordCangeHelper pass () {
-    if (passHelper == null){
+  public PasswordCangeHelper pass() {
+    if (passHelper == null) {
       passHelper = new PasswordCangeHelper(this);
     }
     return passHelper;

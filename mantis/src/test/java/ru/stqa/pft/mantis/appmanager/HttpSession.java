@@ -10,7 +10,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.client.LaxRedirectStrategy;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import sun.net.www.http.HttpClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,12 +19,12 @@ public class HttpSession {
   private CloseableHttpClient httpclient;
   private ApplicationManager app;
 
-  public  HttpSession(ApplicationManager app) {
+  public HttpSession(ApplicationManager app) {
     this.app = app;
     httpclient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build();
   }
 
-  public  boolean login(String username, String password) throws IOException {
+  public boolean login(String username, String password) throws IOException {
     // запрос post
     HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login.php");
     // формирование набора параметров
@@ -47,7 +46,7 @@ public class HttpSession {
   private String getTextForm(CloseableHttpResponse response) throws IOException {
     try {
       return EntityUtils.toString(response.getEntity());
-      } finally {
+    } finally {
       response.close();
     }
   }
