@@ -26,6 +26,7 @@ public class ApplicationManager {
   private FtpHelper ftp;
   private MailHelper mailHalper;
   private JamesHelper jamesHelper;
+  private PasswordCangeHelper passHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -92,6 +93,13 @@ public class ApplicationManager {
       jamesHelper = new JamesHelper(this);
     }
     return jamesHelper;
+  }
+
+  public PasswordCangeHelper pass () {
+    if (passHelper == null){
+      passHelper = new PasswordCangeHelper(this);
+    }
+    return passHelper;
   }
 
 }
