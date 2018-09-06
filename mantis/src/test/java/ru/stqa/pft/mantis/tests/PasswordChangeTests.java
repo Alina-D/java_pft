@@ -11,9 +11,10 @@ public class PasswordChangeTests extends TestBase{
 
   @Test
   public void testPasswordChange () throws IOException {
+    System.out.println("_______________");
+    System.out.println(app.db().users());
+    System.out.println("_______________");
     app.pass().startAdm();
 
   }
-
-
 }
