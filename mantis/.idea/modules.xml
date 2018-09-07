@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis_main.iml" group="mantis" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis_test.iml" group="mantis" />
     </modules>
