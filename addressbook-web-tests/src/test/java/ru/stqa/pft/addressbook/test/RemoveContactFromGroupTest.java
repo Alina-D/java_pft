@@ -37,23 +37,27 @@ public class RemoveContactFromGroupTest extends TestBase{
   public void testAddContactToGroup() {
     Contacts contacts = app.db().contacts();
     ContactData contact = contacts.iterator().next();
-    int before = contact.getGroups().size();
-    System.out.println("before " + before);
 
-    if (before == 0) {
-      Groups groups = app.db().groups();
-      GroupData group = groups.iterator().next();
+    int beforeGroups = contact.getGroups().size();
+    System.out.println("beforeGroup " + beforeGroups);
+    Groups groups = app.db().groups();
+    GroupData group = groups.iterator().next();
+    Contacts beforeContacts = group.getContacts();
+
+    if (beforeGroups == 0) {
       app.contact().addContactToGroup(contact, group);
-      before = contact.getGroups().size();
+      beforeGroups = contact.getGroups().size();
 
       app.contact().removeGroup(contact, group);
     } else {
-      GroupData group = contact.getGroups().iterator().next();
+      group = contact.getGroups().iterator().next();
       app.contact().removeGroup(contact, group);
     }
-    int after = contact.getGroups().size();
-    System.out.println("after  " + after);
+    int afterGroups = contact.getGroups().size();
+    Contacts afterContacts = group.getContacts();
 
-//    assertThat(after, equalTo(before));
+    assertThat(afterGroups, equalTo(beforeGroups));
+    System.out.println("contact before" + beforeContacts);
+    System.out.println("contact  after" + afterContacts);
   }
 }

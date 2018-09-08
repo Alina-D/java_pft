@@ -23,6 +23,7 @@ public class PasswordCangeHelper extends HelperBase {
   }
 
   public void openProfileUser(UserData user) {
+    click(By.linkText("Manage"));
     click(By.linkText("Manage Users"));
     click(By.linkText(user.getName()));
   }

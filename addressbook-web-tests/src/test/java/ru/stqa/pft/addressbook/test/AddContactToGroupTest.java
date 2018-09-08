@@ -9,6 +9,9 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.File;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 
 public class AddContactToGroupTest extends TestBase{
 
@@ -45,6 +48,6 @@ public class AddContactToGroupTest extends TestBase{
       app.contact().addContactToGroup(contact, group);
     }
     int after = contact.getGroups().size();
-//        assertThat(after, equalTo(before));
+        assertThat(after, equalTo(before));
   }
 }

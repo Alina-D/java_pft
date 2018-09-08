@@ -45,4 +45,18 @@ public class HbConnectionTest {
       System.out.println(contact.getGroups());
     }
   }
+
+  @Test
+  public void testHbConnectionGroup(){
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    List<GroupData> result = session.createQuery( "from GroupData" ).list();
+    session.getTransaction().commit();
+    session.close();
+    System.out.println(result);
+    for (GroupData group : result) {
+      System.out.println(group);
+      System.out.println(group.getContacts());
+    }
+  }
 }
