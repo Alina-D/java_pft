@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78f810c3-ca53-4d4a-95b0-297f7f3ed610" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_beust_jcommander_1_72.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_extras_beanshell_bsh_2_0b6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_fluent_hc_4_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_testng_testng_6_14_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/rest-sample_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/rest-sample_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/Issue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -53,17 +39,26 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="RestTests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="169">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#848#849#0" expanded="true" />
-                <element signature="e#869#870#0" expanded="true" />
+                <element signature="e#1863#1864#0" expanded="true" />
+                <element signature="e#1947#1948#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuiteRunnerWorker.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/SuiteRunnerWorker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
             </state>
           </provider>
         </entry>
@@ -71,16 +66,8 @@
       <file leaf-file-name="Issue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/Issue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7">
-              <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-              <folding>
-                <element signature="e#145#146#0" expanded="true" />
-                <element signature="e#164#165#0" expanded="true" />
-                <element signature="e#196#197#0" expanded="true" />
-                <element signature="e#220#221#0" expanded="true" />
-                <element signature="e#256#257#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-42">
+              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -517,6 +504,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -556,7 +544,6 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -673,69 +660,69 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RestTests - 2018.09.08 at 16h 39m 26s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 00m 00s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 16h 43m 37s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 03m 56s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 17h 06m 26s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 05m 09s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 17h 40m 00s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 06m 48s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 17h 51m 45s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 08m 15s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 18h 09m 35s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 09m 37s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 18h 10m 27s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 09m 50s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 18h 11m 31s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 11m 32s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 18h 14m 38s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 12m 37s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="RestTests - 2018.09.08 at 18h 16m 26s.xml">
+    <history-entry file="RestTests - 2018.09.08 at 21h 14m 07s.xml">
       <configuration name="RestTests" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32954547" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.4788961" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.42694804" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Designer" order="0" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24962178" />
-      <window_info anchor="bottom" id="Build" order="3" weight="0.30032468" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25340393" />
       <window_info anchor="right" id="Gradle" order="1" weight="0.32980332" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.32969034" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.29707792" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Build" order="3" weight="0.30032468" />
+      <window_info anchor="bottom" id="Find" order="5" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -743,24 +730,36 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java</url>
-          <line>47</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java</url>
-          <line>48</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="16" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="72" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1863#1864#0" expanded="true" />
+            <element signature="e#1947#1948#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/internal/Invoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10064">
+          <caret line="592" selection-start-line="592" selection-end-line="592" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/Issue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -768,29 +767,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/internal/Invoker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="592" selection-start-line="592" selection-end-line="592" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/SuiteRunnerWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/Issue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7">
-          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-          <folding>
-            <element signature="e#145#146#0" expanded="true" />
-            <element signature="e#164#165#0" expanded="true" />
-            <element signature="e#196#197#0" expanded="true" />
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#256#257#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-42">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/stqa/pft/rest/RestTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="169">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
+            <element signature="e#1863#1864#0" expanded="true" />
+            <element signature="e#1947#1948#0" expanded="true" />
           </folding>
         </state>
       </provider>
