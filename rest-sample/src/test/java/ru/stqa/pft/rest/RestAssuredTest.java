@@ -52,17 +52,5 @@ public class RestAssuredTest extends TestBase {
     JsonElement parsed = new JsonParser().parse(json);
     return parsed.getAsJsonObject().get("issue_id").getAsInt();
   }
-
-  private boolean isIssueOpen(int issueId) {
-    String json = RestAssured.get(String.format("http://bugify.stqa.ru/api/filters/%s/issues.json", issueId)).asString();
-    return false;
-  }
-
-  public void skipIfNotFixed(int issueId) {
-    if (isIssueOpen(issueId)) {
-      throw new SkipException("Ignored because of issue " + issueId);
-    }
-  }
-
 }
 
