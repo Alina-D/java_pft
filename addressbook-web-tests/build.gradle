@@ -4,6 +4,9 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useTestNG()
+}
 
 dependencies {
     compile 'org.testng:testng:6.14.3'
@@ -48,6 +51,3 @@ task testContacts(type: Test) {
     }
 }
 
-test {
-    useTestNG()
-}
