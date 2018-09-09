@@ -40,14 +40,34 @@ public class AddContactToGroupTest extends TestBase{
     ContactData contact = contacts.iterator().next();
     Groups groups = app.db().groups();
     GroupData group = groups.iterator().next();
+    int oldContacts = group.getContacts().size();
+
+    System.out.println("oldContacts " +  group.getContacts());
+
+    for (ContactData c: contacts) {
+      System.out.println("c " + c);
+      if (groups.size() != c.getGroups().size()) {
+        contact = c;
+        System.out.println("contact" + contact);
+        break;
+      }
+    }
+
     int before = contact.getGroups().size();
     if(groups.size() == contact.getGroups().size()){
       app.contact().removeGroup(contact, group);
+      oldContacts = app.db().groups().iterator().next().withId(group.getId()).getContacts().size();
       app.contact().addContactToGroup(contact, group);
     } else {
       app.contact().addContactToGroup(contact, group);
     }
+
     int after = contact.getGroups().size();
-        assertThat(after, equalTo(before));
+    int newContacts =  app.db().groups().iterator().next().withId(group.getId()).getContacts().size();
+
+    System.out.println("newContacts " +  app.db().groups().iterator().next().withId(group.getId()).getContacts());
+
+    assertThat(after, equalTo(before));
+    assertThat(newContacts, equalTo(oldContacts +  1));
   }
 }
