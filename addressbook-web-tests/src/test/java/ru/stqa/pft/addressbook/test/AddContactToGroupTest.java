@@ -39,6 +39,8 @@ public class AddContactToGroupTest extends TestBase{
     Contacts contacts = app.db().contacts();
     ContactData contact = contacts.iterator().next();
     Groups groups = app.db().groups();
+    GroupData group = groups.iterator().next();
+    int oldContacts;
 
     for (ContactData c: contacts) {
       System.out.println("c " + c);
@@ -48,17 +50,16 @@ public class AddContactToGroupTest extends TestBase{
         break;
       }
     }
-
-    groups.removeAll(contact.getGroups());
-    GroupData group = groups.iterator().next();
-    int oldContacts = group.getContacts().size();
-
     int before = contact.getGroups().size();
+
     if(groups.size() == contact.getGroups().size()){
       app.contact().removeGroup(contact, group);
+      group = app.db().groups().iterator().next();
       oldContacts = app.db().groups().iterator().next().withId(group.getId()).getContacts().size();
       app.contact().addContactToGroup(contact, group);
     } else {
+      groups.removeAll(contact.getGroups());
+      oldContacts = group.getContacts().size();
       app.contact().addContactToGroup(contact, group);
     }
 
