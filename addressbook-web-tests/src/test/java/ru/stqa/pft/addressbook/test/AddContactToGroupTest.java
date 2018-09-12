@@ -40,7 +40,7 @@ public class AddContactToGroupTest extends TestBase{
     ContactData contact = contacts.iterator().next();
     Groups groups = app.db().groups();
     GroupData group = groups.iterator().next();
-    int oldContacts;
+    Contacts beforeContacts;
 
     for (ContactData c: contacts) {
       System.out.println("c " + c);
@@ -50,23 +50,30 @@ public class AddContactToGroupTest extends TestBase{
         break;
       }
     }
-    int before = contact.getGroups().size();
+    Groups beforeGroups = contact.getGroups();
 
     if(groups.size() == contact.getGroups().size()){
       app.contact().removeGroup(contact, group);
-      group = app.db().groups().iterator().next();
-      oldContacts = app.db().groups().iterator().next().withId(group.getId()).getContacts().size();
+      beforeGroups = app.db().contactWithId(contact.getId()).iterator().next().getGroups();
+      beforeContacts = app.db().groupWithId(group.getId()).iterator().next().getContacts();
       app.contact().addContactToGroup(contact, group);
     } else {
       groups.removeAll(contact.getGroups());
-      oldContacts = group.getContacts().size();
+      group = groups.iterator().next();
+      beforeContacts = app.db().groupWithId(group.getId()).iterator().next().getContacts();
       app.contact().addContactToGroup(contact, group);
     }
 
-    int after = contact.getGroups().size();
-    int newContacts =  app.db().groups().iterator().next().withId(group.getId()).getContacts().size();
+    Groups afterGroups = app.db().contactWithId(contact.getId()).iterator().next().getGroups();
+    Contacts afterContacts = app.db().groupWithId(group.getId()).iterator().next().getContacts();
 
-    assertThat(after, equalTo(before));
-    assertThat(newContacts, equalTo(oldContacts +  1));
+    assertThat(afterGroups.size(), equalTo(beforeGroups.size() + 1));
+    assertThat(afterContacts.size(), equalTo(beforeContacts.size() +  1));
+
+    beforeGroups.add(group);
+    beforeContacts.add(contact);
+
+    assertThat(afterGroups, equalTo(beforeGroups));
+    assertThat(afterContacts, equalTo(beforeContacts));
   }
 }
